@@ -1,0 +1,9 @@
+.tags {
+  display: flex;
+  gap: 0.25rem;
+
+  .tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+}

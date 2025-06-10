@@ -1,0 +1,44 @@
+:host {
+  padding: 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.exercise-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.intro {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.exercise-list-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.exercise-list-item-description {
+  grid-column: span 2;
+}
+
+.exercise-item {
+  display: grid;
+  grid-template-columns: 40px auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  justify-items: start;
+  grid-column: span 2;
+}
+
+.exercise-item-description {
+  grid-column: 2 / 4;
+}
+
+.exercise-list {
+  display: grid;
+  gap: 1rem;
+}
