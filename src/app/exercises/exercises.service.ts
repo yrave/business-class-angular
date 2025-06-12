@@ -1,24 +1,22 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { exercises as exercisesMock } from '../../environments/environment';
 import {
   CompletableExercise,
   CompletableExerciseList,
   Exercise,
   ExerciseList,
-} from "./exercises.model";
-import { exercises as exercisesMock } from "./exercises.mock";
+} from './exercises.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ExercisesService {
   exercises: ExerciseList[] = exercisesMock;
 
-  constructor() {}
-
   getExerciseList(): CompletableExerciseList[] {
-    const localStorageKey = "business-class-angular-completed-exercises";
+    const localStorageKey = 'business-class-angular-completed-exercises';
     const completedExercises = JSON.parse(
-      localStorage.getItem(localStorageKey) || "[]",
+      localStorage.getItem(localStorageKey) || '[]',
     ) as string[];
     return this.exercises.map((exerciseList): CompletableExerciseList => {
       return {
@@ -36,9 +34,9 @@ export class ExercisesService {
   }
 
   toggleExercise(id: string): void {
-    const localStorageKey = "business-class-angular-completed-exercises";
+    const localStorageKey = 'business-class-angular-completed-exercises';
     const completedExercises = JSON.parse(
-      localStorage.getItem(localStorageKey) || "[]",
+      localStorage.getItem(localStorageKey) || '[]',
     ) as string[];
     if (completedExercises.includes(id)) {
       // If the exercise is already completed, remove it from the completed list
@@ -56,28 +54,28 @@ export class ExercisesService {
 
   getTagColor(tag: string): string {
     switch (tag) {
-      case "decoupling":
-        return "#1155FF88";
-      case "beginner":
-        return "#00AAEE88";
-      case "automation":
-        return "orange";
-      case "collaboration":
-        return "#EE00FF99";
-      case "testing":
-        return "#FF980088";
-      case "tooling":
-        return "#FEA50088";
-      case "storybook":
-        return "rgb(255, 71, 133)";
-      case "linter":
-        return "#34993499";
-      case "advanced":
-        return "#FF0022AA";
-      case "discussion":
-        return "#EE1133AA";
+      case 'decoupling':
+        return '#1155FF88';
+      case 'beginner':
+        return '#00AAEE88';
+      case 'automation':
+        return 'orange';
+      case 'collaboration':
+        return '#EE00FF99';
+      case 'testing':
+        return '#FF980088';
+      case 'tooling':
+        return '#FEA50088';
+      case 'storybook':
+        return 'rgb(255, 71, 133)';
+      case 'linter':
+        return '#34993499';
+      case 'advanced':
+        return '#FF0022AA';
+      case 'discussion':
+        return '#EE1133AA';
       default:
-        return "gray";
+        return 'gray';
     }
   }
 

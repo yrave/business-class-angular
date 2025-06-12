@@ -1,20 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { TagComponent } from "../tag/tag.component";
-import { ExercisesService } from "./exercises.service";
-import { MatCheckbox, MatCheckboxModule } from "@angular/material/checkbox";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TagComponent } from '../tag/tag.component';
 import {
   CompletableExercise,
   CompletableExerciseList,
   Exercise,
-  ExerciseList,
-} from "./exercises.model";
+} from './exercises.model';
+import { ExercisesService } from './exercises.service';
 
 @Component({
-  selector: "app-exercises",
+  selector: 'app-exercises',
   imports: [TagComponent, MatCheckboxModule],
-  styleUrl: "./exercises.component.scss",
-  templateUrl: "./exercises.component.html",
+  styleUrl: './exercises.component.scss',
+  templateUrl: './exercises.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExercisesComponent {

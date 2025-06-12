@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { TagComponent } from "./tag.component";
-import { By } from "@angular/platform-browser";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { TagComponent } from './tag.component';
 
-describe("TagComponent", () => {
-  let component: TagComponent;
+describe('TagComponent', () => {
   let fixture: ComponentFixture<TagComponent>;
 
   beforeEach(async () => {
@@ -14,20 +13,19 @@ describe("TagComponent", () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TagComponent);
-    component = fixture.componentInstance;
   });
 
-  it("should display the correct number of tags", () => {
+  it('should display the correct number of tags', () => {
     // Arrange: set up some tags
-    const tags = ["Angular", "TypeScript", "Testing"].map((name) => ({
+    const tags = ['Angular', 'TypeScript', 'Testing'].map((name) => ({
       name,
-      color: "blue",
+      color: 'blue',
     }));
-    fixture.componentRef.setInput("tags", tags);
+    fixture.componentRef.setInput('tags', tags);
     fixture.detectChanges();
 
     // Act: query for tag elements (assuming each tag is rendered with a class 'tag-item')
-    const tagElements = fixture.debugElement.queryAll(By.css(".tag"));
+    const tagElements = fixture.debugElement.queryAll(By.css('.tag'));
 
     // Assert: the number of rendered tags matches the input
     expect(tagElements.length).toBe(tags.length);

@@ -1,0 +1,9 @@
+<app-business-class-menu-presenter
+  [filteredMenu]="filteredMenu$ | async"
+  (addFavorite)="addFavorite($event)"
+  (removeFavorite)="removeFavorite($event)"
+  (searchValueChange)="searchValueChange($event)"
+  [isFavorite]="isFavorite.bind(this)"
+  [tags]="tags.bind(this)"
+  [getColor]="getColor.bind(this)"
+></app-business-class-menu-presenter>

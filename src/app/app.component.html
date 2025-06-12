@@ -2,8 +2,18 @@
   <span>Business Class Angular</span>
   <div>
     <button mat-button routerLink="/business-class-menu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="menus">Menus</button>
     <button mat-button routerLink="/exercises">Exercises</button>
   </div>
 </mat-toolbar>
+
+<mat-menu #menus="matMenu">
+  <button mat-menu-item routerLink="/business-class-menu-container-presenter">
+    Container Presenter
+  </button>
+  <button mat-menu-item routerLink="/business-class-menu-content-projection">
+    Content Projection
+  </button>
+</mat-menu>
 
 <router-outlet />

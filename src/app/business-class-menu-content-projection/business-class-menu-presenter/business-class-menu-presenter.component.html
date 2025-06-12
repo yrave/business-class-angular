@@ -1,0 +1,38 @@
+<div class="menu-section">
+  <h2>Menu - Content Projection</h2>
+  <ng-content select="[search]"></ng-content>
+
+  @if (filteredMenu(); as filteredMenu) {
+    <div class="menu-courses">
+      @for (course of filteredMenu.food; track course.name) {
+        <div class="menu-course">
+          <h3>{{ course.name }}</h3>
+          <div class="menu-items">
+            @for (item of course.items; track item.id) {
+              <div class="menu-item">
+                @if (isFavorite()(item)) {
+                  <mat-icon
+                    class="favorite-icon"
+                    (click)="removeFavorite.emit(item)"
+                    fontIcon="star"
+                  ></mat-icon>
+                } @else {
+                  <mat-icon
+                    class="favorite-icon"
+                    (click)="addFavorite.emit(item)"
+                    fontIcon="star_outlined"
+                  ></mat-icon>
+                }
+                <h4>{{ item.name }}</h4>
+                @if (item.tags.length > 0) {
+                  <app-tag [tags]="tags()(item)"></app-tag>
+                }
+                <sub class="item-description">{{ item.description }}</sub>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

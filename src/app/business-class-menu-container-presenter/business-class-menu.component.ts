@@ -1,54 +1,23 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { Subscription } from 'rxjs';
-import { TagComponent } from '../tag/tag.component';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BusinessClassMenuPresenterComponent } from './business-class-menu-presenter/business-class-menu-presenter.component';
 import { DrinkItem, FoodItem, Menu } from './business-class-menu.model';
 import { BusinessClassMenuService } from './business-class-menu.service';
 
 @Component({
   selector: 'app-business-class-menu',
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    TagComponent,
-  ],
+  imports: [CommonModule, BusinessClassMenuPresenterComponent],
   styleUrl: './business-class-menu.component.scss',
   templateUrl: './business-class-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BusinessClassMenuComponent implements OnInit, OnDestroy {
-  private subscriptions = new Subscription();
-
+export class BusinessClassMenuContainerComponent {
   service = inject(BusinessClassMenuService);
-
-  searchFormControl = new FormControl('');
 
   filteredMenu$ = this.service.filteredMenu$;
 
-  ngOnInit(): void {
-    this.searchFormControl.valueChanges
-      .subscribe((searchTerm) => {
-        this.service.searchValue.next(searchTerm || '');
-      })
-      .add(this.subscriptions);
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+  searchValueChange($event: string) {
+    this.service.searchValue.next($event);
   }
 
   filterMenu(menu: Menu, searchTerm: string | null): Menu {

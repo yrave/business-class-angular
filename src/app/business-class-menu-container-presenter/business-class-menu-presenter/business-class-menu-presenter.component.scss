@@ -1,0 +1,49 @@
+:host {
+  display: grid;
+  padding-bottom: 2rem;
+}
+
+.menu-section {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.menu-courses {
+  display: grid;
+  gap: 2rem;
+}
+
+.menu-course {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.menu-items {
+  display: grid;
+  gap: 1rem;
+}
+
+.menu-item {
+  display: grid;
+  grid-template-columns: 1.5rem auto 1fr;
+  gap: 0.5rem;
+}
+
+.item-description {
+  grid-column: span 3;
+}
+
+.tags {
+  display: flex;
+  gap: 0.25rem;
+
+  .tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.favorite-icon {
+  cursor: pointer;
+}
